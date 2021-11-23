@@ -1,0 +1,40 @@
+{
+  "name": "poll-tracker-backend",
+  "version": "1.0.0",
+  "description": "This is the backend of the poll tracker",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cheese-framework/poll-tracker-backend.git"
+  },
+  "keywords": [
+    "Poll",
+    "tracker",
+    "elections"
+  ],
+  "author": "Caleb Okpara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cheese-framework/poll-tracker-backend/issues"
+  },
+  "homepage": "https://github.com/cheese-framework/poll-tracker-backend#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "csv": "^6.0.3",
+    "dotenv": "^10.0.0",
+    "download": "^8.0.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^6.0.13",
+    "morgan": "^1.10.0"
+  }
+}
