@@ -12,4 +12,6 @@ router.route("/:region").get(controller.getConstituencies);
 
 router.route("/constituency/:constituency").get(controller.getStations);
 
+router.route("/stations/:constituency").get(controller.getCountingCenters);
+
 module.exports = router;
