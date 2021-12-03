@@ -115,6 +115,7 @@ exports.getRegions = async (req, res) => {
                     ? Number(reg.INDP)
                     : Number(reg.INDP) + Number(regions[reg.Region].INDP)
                   : Number(reg.INDP),
+                LAST: 0,
               };
             });
 
