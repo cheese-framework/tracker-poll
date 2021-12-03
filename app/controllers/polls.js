@@ -273,7 +273,7 @@ exports.getCountingCenters = async (req, res) => {
   } catch (err) {}
 
   fs.readFile(
-    `${path.join(__dirname, "../data/stations - Sheet1.csv")}`,
+    `${path.join(__dirname, "../data/data - stations.csv")}`,
     "utf-8",
     (err, data) => {
       if (err) {
