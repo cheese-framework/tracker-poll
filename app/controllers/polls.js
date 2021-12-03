@@ -25,15 +25,20 @@ exports.getRegions = async (req, res) => {
   const file = process.env.URL;
   const filePath = `${path.join(__dirname, "../data")}`;
   try {
-    // fs.existsSync(filePath) && fs.unlinkSync(filePath);
-    await download(file, filePath);
-    console.log("DOWNLOADED");
+    await download(file, filePath, {
+      filename: "data.csv",
+      headers: {
+        "Cache-Control": "no-cache",
+        Pragma: "no-cache",
+        Expires: "0",
+      },
+    });
   } catch (err) {
     console.error(err);
+    res.status(500).send(err.message);
   }
-
   fs.readFile(
-    `${path.join(__dirname, "../data/data - data.csv")}`,
+    `${path.join(__dirname, "../data/data.csv")}`,
     "utf-8",
     (err, data) => {
       if (err) {
@@ -135,7 +140,7 @@ exports.getRegions = async (req, res) => {
 
 exports.getConstituencies = (req, res) => {
   fs.readFile(
-    `${path.join(__dirname, "../data/data - data.csv")}`,
+    `${path.join(__dirname, "../data/data.csv")}`,
     "utf-8",
     (err, data) => {
       if (err) {
@@ -204,7 +209,7 @@ exports.getConstituencies = (req, res) => {
 
 exports.getStations = (req, res) => {
   fs.readFile(
-    `${path.join(__dirname, "../data/data - data.csv")}`,
+    `${path.join(__dirname, "../data/data.csv")}`,
     "utf-8",
     (err, data) => {
       if (err) {
@@ -273,13 +278,20 @@ exports.getCountingCenters = async (req, res) => {
   const file = process.env.URL_STATION;
   const filePath = `${path.join(__dirname, "../data")}`;
   try {
-    await download(file, filePath);
+    await download(file, filePath, {
+      filename: "stations.csv",
+      headers: {
+        "Cache-Control": "no-cache",
+        Pragma: "no-cache",
+        Expires: "0",
+      },
+    });
   } catch (err) {
     console.error(err);
   }
 
   fs.readFile(
-    `${path.join(__dirname, "../data/data - stations.csv")}`,
+    `${path.join(__dirname, "../data/stations.csv")}`,
     "utf-8",
     (err, data) => {
       if (err) {
