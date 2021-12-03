@@ -25,8 +25,11 @@ exports.getRegions = async (req, res) => {
   const file = process.env.URL;
   const filePath = `${path.join(__dirname, "../data")}`;
   try {
+    fs.unlinkSync(filePath);
     await download(file, filePath);
-  } catch (err) {}
+  } catch (err) {
+    console.error(err);
+  }
 
   fs.readFile(
     `${path.join(__dirname, "../data/data - data.csv")}`,
@@ -270,7 +273,9 @@ exports.getCountingCenters = async (req, res) => {
   const filePath = `${path.join(__dirname, "../data")}`;
   try {
     await download(file, filePath);
-  } catch (err) {}
+  } catch (err) {
+    console.error(err);
+  }
 
   fs.readFile(
     `${path.join(__dirname, "../data/data - stations.csv")}`,
