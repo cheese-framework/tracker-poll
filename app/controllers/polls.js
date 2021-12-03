@@ -25,8 +25,9 @@ exports.getRegions = async (req, res) => {
   const file = process.env.URL;
   const filePath = `${path.join(__dirname, "../data")}`;
   try {
-    fs.unlinkSync(filePath);
+    // fs.existsSync(filePath) && fs.unlinkSync(filePath);
     await download(file, filePath);
+    console.log("DOWNLOADED");
   } catch (err) {
     console.error(err);
   }
