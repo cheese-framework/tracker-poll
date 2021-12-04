@@ -3,6 +3,7 @@ const path = require("path");
 const https = require("https");
 const _ = require("lodash");
 const download = require("download");
+const { DownloadWorker } = require("rapid-downloader");
 
 function csvToArray(str, delimiter = ",") {
   const headers = str.slice(0, str.indexOf("\n")).split(delimiter);
@@ -34,7 +35,6 @@ exports.getRegions = async (req, res) => {
       },
     });
   } catch (err) {
-    console.error(err);
     res.status(500).send(err.message);
   }
   fs.readFile(
